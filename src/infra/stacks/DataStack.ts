@@ -18,7 +18,7 @@ export class DataStack extends Stack {
                 name: 'id',
                 type: AttributeType.STRING
             },
-            tableName: `SpaceStack-${suffix}`
+            tableName: `SpaceTable-${suffix}`
         })
     }
 }
