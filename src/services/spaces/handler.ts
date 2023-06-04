@@ -1,5 +1,8 @@
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
+import { postSpaces } from "./PostSpaces";
 
+const ddbclient = new DynamoDBClient({});
 
 // the handler function receives an event and a context
 // if this lambda is accessed by APIGateWay, then APIGatewayProxyEvent is the type of our event
@@ -7,18 +10,31 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 
     let message: string;
 
-    switch (event.httpMethod) {
-        case 'GET':
-            message = 'Hello from GET!'
-            break;
+    try {
+        switch (event.httpMethod) {
+            case 'GET':
+                message = 'Hello from GET!'
+                break;
+            
+            case 'POST':
+                // message = 'Hello from POST!'
+                // break;
+                const response = postSpaces(event, ddbclient);
+                return response;
         
-        case 'POST':
-            message = 'Hello from POST!'
-            break;
-    
-        default:
-            break;
+            default:
+                break;
+        }
+        
+    } catch (error) {
+        console.error(error);
+        return {
+            statusCode: 500,
+            body: JSON.stringify(error.message)
+        }
+        
     }
+
     // response of type APIGatewayProxyResult
     const response: APIGatewayProxyResult = {
         statusCode: 200,
