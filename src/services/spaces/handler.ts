@@ -17,12 +17,13 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
             case 'GET':
                 // message = 'Hello from GET!'
                 // break;
-                const getResponse = getSpaces(event, ddbclient);
+                const getResponse = await getSpaces(event, ddbclient);
+                console.log(getResponse)
                 return getResponse;
             case 'POST':
                 // message = 'Hello from POST!'
                 // break;
-                const postResponse = postSpaces(event, ddbclient);
+                const postResponse = await postSpaces(event, ddbclient);
                 return postResponse;
         
             default:
