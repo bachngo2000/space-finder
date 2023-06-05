@@ -10,3 +10,11 @@ content-Type: : application/json
     "location": "Paris"
  }
 ###
+
+GET https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?
+content-Type: : application/json
+
+ {
+    "location": "Paris"
+ }
+###
