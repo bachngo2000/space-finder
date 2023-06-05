@@ -5,7 +5,7 @@ import { Construct } from 'constructs';
 export class AuthStack extends Stack {
 
     // We will need this userPool and userPoolClient throughout the class and outside of the class
-    private userPool: UserPool;
+    public userPool: UserPool;
 
     private userPoolClient: UserPoolClient;
 
