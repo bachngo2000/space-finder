@@ -22,6 +22,10 @@ export class ApiStack extends Stack {
         // here we need an integration object because our lambda is in a different stack. We need to export that from the  Lambdastack and import it in. So inside our API stack, this means that we need to extend our properties and this means that we need to make these two stacks communicate with each other.
         spacesResource.addMethod('GET', props.spacesLambdaIntegration);
         spacesResource.addMethod('POST', props.spacesLambdaIntegration);
+        spacesResource.addMethod('PUT', props.spacesLambdaIntegration);
+        spacesResource.addMethod('DELETE', props.spacesLambdaIntegration);
+
+
 
     }
 }

@@ -7,11 +7,15 @@ POST https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces
 content-Type: : application/json
 
  {
-    "location": "Paris"
+    "location": "Los Angeles",
+    "name": "My First Destination"
  }
 ###
 
-GET https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?
+GET https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?id=13b4816f-1e5e-4f53-a2fa-051a1f218ea0
+###
+
+DELETE  https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?id=13b4816f-1e5e-4f53-a2fa-051a1f218ea0
 content-Type: : application/json
 
  {
@@ -19,18 +23,10 @@ content-Type: : application/json
  }
 ###
 
-DELETE  https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?
+PUT https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?id=13b4816f-1e5e-4f53-a2fa-051a1f218ea0
 content-Type: : application/json
 
  {
-    "location": "Paris"
- }
-###
-
-PUT https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?
-content-Type: : application/json
-
- {
-    "location": "Paris2"
+    "name": "Where I first landed in America"
  }
 ###
