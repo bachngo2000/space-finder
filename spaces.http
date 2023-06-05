@@ -19,6 +19,14 @@ content-Type: : application/json
  }
 ###
 
+DELETE  https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?
+content-Type: : application/json
+
+ {
+    "location": "Paris"
+ }
+###
+
 PUT https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?
 content-Type: : application/json
 

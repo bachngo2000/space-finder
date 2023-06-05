@@ -4,6 +4,7 @@ import { postSpaces } from "./PostSpaces";
 import { getSpaces } from "./GetSpaces";
 import { get } from "http";
 import { updateSpace } from "./UpdateSpace";
+import { deleteSpace } from "./DeleteSpace";
 
 const ddbclient = new DynamoDBClient({});
 
@@ -32,6 +33,10 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
                 const putResponse = await updateSpace(event, ddbclient);
                 console.log(putResponse)
                 return putResponse;
+            case 'DELETE':
+                const deleteResponse = await deleteSpace(event, ddbclient);
+                console.log(deleteResponse)
+                return deleteResponse;
             default:
                 break;
         }
