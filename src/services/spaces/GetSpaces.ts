@@ -43,10 +43,12 @@ export async function getSpaces(event: APIGatewayProxyEvent, ddbclient: DynamoDB
         TableName: process.env.TABLE_NAME
     }));
 
-    console.log(result.Items);
+    const unmarshalledItems = result.Items?.map(item => unmarshall(item));
+
+    console.log(unmarshalledItems);
 
     return {
         statusCode: 201,
-        body: JSON.stringify(result.Items)
+        body: JSON.stringify(unmarshalledItems)
     }
 }
