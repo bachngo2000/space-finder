@@ -1,5 +1,5 @@
 import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
-import { CfnIdentityPool, CfnUserPoolGroup, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
+import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, CfnUserPoolGroup, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
 import { FederatedPrincipal, Role } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
@@ -27,7 +27,7 @@ export class AuthStack extends Stack {
         this.createAdminsGroup();
         this.createIdentityPool();
         this.createRoles();
-        // this.attachRoles();
+        this.attachRoles();
     }
 
     private createUserPool() {
@@ -116,5 +116,22 @@ export class AuthStack extends Stack {
                 'sts:AssumeRoleWithWebIdentity'
             )
         });
+    }
+
+    private attachRoles(){
+        new CfnIdentityPoolRoleAttachment(this, 'RolesAttachment', {
+            identityPoolId: this.identityPool.ref,
+            roles: {
+                'authenticated': this.authenticatedRole.roleArn,
+                'unauthenticated': this.unAuthenticatedRole.roleArn
+            },
+            roleMappings: {
+                adminsMapping: {
+                    type: 'Token',
+                    ambiguousRoleResolution: 'AuthenticatedRole',
+                    identityProvider: `${this.userPool.userPoolProviderName}:${this.userPoolClient.userPoolClientId}`
+                }
+            }
+        })
     }
 }
