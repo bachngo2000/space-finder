@@ -1,5 +1,5 @@
 import { Stack, StackProps } from 'aws-cdk-lib';
-import { AuthorizationType, CognitoUserPoolsAuthorizer, LambdaIntegration, MethodOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { AuthorizationType, CognitoUserPoolsAuthorizer, Cors, LambdaIntegration, MethodOptions, ResourceOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { IUserPool } from 'aws-cdk-lib/aws-cognito';
 import { Construct } from 'constructs';
 
@@ -34,8 +34,16 @@ export class ApiStack extends Stack {
                 authorizerId: authorizer.authorizerId
             }
         }
+
+        const optionsWithCors: ResourceOptions = {
+            defaultCorsPreflightOptions: {
+                allowOrigins: Cors.ALL_ORIGINS,
+                allowMethods: Cors.ALL_METHODS
+            }
+        }
+
         // add a resource by hand
-        const spacesResource = api.root.addResource('spaces');
+        const spacesResource = api.root.addResource('spaces', optionsWithCors);
         // add a simple GET method.
         // here we need an integration object because our lambda is in a different stack. We need to export that from the  Lambdastack and import it in. So inside our API stack, this means that we need to extend our properties and this means that we need to make these two stacks communicate with each other.
         spacesResource.addMethod('GET', props.spacesLambdaIntegration, optionsWithAuth);

@@ -5,6 +5,7 @@ import { getSpaces } from "./GetSpaces";
 import { updateSpace } from "./UpdateSpace";
 import { deleteSpace } from "./DeleteSpace";
 import { JsonError, MissingFieldError } from "../shared/Validators";
+import { addCorsHeader } from "../shared/Utils";
 
 const ddbclient = new DynamoDBClient({});
 
@@ -12,7 +13,9 @@ const ddbclient = new DynamoDBClient({});
 // if this lambda is accessed by APIGateWay, then APIGatewayProxyEvent is the type of our event
 async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
 
-    let message: string;
+    // let message: string;
+
+    let response: APIGatewayProxyResult;
 
     try {
         switch (event.httpMethod) {
@@ -20,23 +23,32 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
                 // message = 'Hello from GET!'
                 // break;
                 const getResponse = await getSpaces(event, ddbclient);
-                console.log(getResponse)
-                return getResponse;
+                // console.log(getResponse)
+                // addCorsHeader(getResponse)
+                // return getResponse;
+                response = getResponse;
+                break;
             case 'POST':
                 // message = 'Hello from POST!'
                 // break;
                 const postResponse = await postSpaces(event, ddbclient);
-                return postResponse;
+                // return postResponse;
+                response = postResponse;
+                break;
             case 'PUT':
                 // message = 'Hello from POST!'
                 // break;
                 const putResponse = await updateSpace(event, ddbclient);
-                console.log(putResponse)
-                return putResponse;
+                // console.log(putResponse)
+                // return putResponse;
+                response = putResponse;
+                break;
             case 'DELETE':
                 const deleteResponse = await deleteSpace(event, ddbclient);
-                console.log(deleteResponse)
-                return deleteResponse;
+                // console.log(deleteResponse)
+                // return deleteResponse;
+                response = deleteResponse;
+                break;
             default:
                 break;
         }
@@ -64,11 +76,11 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
     }
 
     // response of type APIGatewayProxyResult
-    const response: APIGatewayProxyResult = {
-        statusCode: 200,
-        body: JSON.stringify(message)
-    }
-
+    // const response: APIGatewayProxyResult = {
+    //     statusCode: 200,
+    //     body: JSON.stringify(message)
+    // }
+    addCorsHeader(response);
     return response;
 
 }
