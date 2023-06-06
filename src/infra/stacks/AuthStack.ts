@@ -67,14 +67,14 @@ export class AuthStack extends Stack {
     }
 
     private createIdentityPool() {
-        this.identityPool = new CfnIdentityPool(this, 'SpaceItentityPool', {
+        this.identityPool = new CfnIdentityPool(this, 'SpaceIdentityPool', {
             allowUnauthenticatedIdentities: true,
             cognitoIdentityProviders: [{
                 clientId: this.userPoolClient.userPoolClientId,
                 providerName: this.userPool.userPoolProviderName
             }]
         })
-        new CfnOutput(this, 'SpaceItentityPoolId', {
+        new CfnOutput(this, 'SpaceIdentityPoolId', {
             value: this.identityPool.ref
         })
     }
