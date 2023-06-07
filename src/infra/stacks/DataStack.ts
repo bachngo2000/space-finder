@@ -20,11 +20,11 @@ export class DataStack extends Stack {
         // getting suffix from the stack to form the db table's name
         const suffix = getSuffixFromStack(this);
 
-        this.deploymentBucket = new Bucket(this, 'SpaceFinderFrontend', {
-            bucketName: `space-finder-frontend-${suffix}`,
-            publicReadAccess: true,
-            websiteIndexDocument: 'index.html'
-        })
+        // this.deploymentBucket = new Bucket(this, 'SpaceFinderFrontend', {
+        //     bucketName: `space-finder-frontend-${suffix}`,
+        //     publicReadAccess: true,
+        //     websiteIndexDocument: 'index.html'
+        // })
 
         this.photosBucket = new Bucket(this, 'SpaceFinderPhotos', {
             bucketName: `space-finder-photos-${suffix}`,
@@ -47,7 +47,7 @@ export class DataStack extends Stack {
                 restrictPublicBuckets: false
             }
         });
-        
+
         new CfnOutput(this, 'SpaceFinderPhotosBucketName', {
             value: this.photosBucket.bucketName
         });
