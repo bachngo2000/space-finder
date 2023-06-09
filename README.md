@@ -14,7 +14,7 @@ To learn more, please visit https://github.com/bachngo2000/space-finder-frontend
  - **AWS S3**: used to upload photo files and to deploy the application to the cloud
  - **AWS DynamoDB**: used to create tables with AWS-CDK, write and run queries locally with AWS-CDK v3
  - **AWS Cognito**: used to create user pools to stores user data and provides basic authentication solution -- JWT tokens, & identity pools to generate temporary credentials to run AWS-CDK calls locally and grant fine grained access control to admin users to allow sending data/files from the application to an external source
- - **API Gateway**: used to allow local access to various AWS resources on the cloud using a REST Api
+ - **API Gateway**: used to allow local access to various AWS resources on the cloud using a serverless REST Api
 
 ## Walkthrough
 
