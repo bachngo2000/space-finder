@@ -18,7 +18,7 @@
     "constructs": "^10.2.38",
     "esbuild": "^0.17.19",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@aws-amplify/auth": "^5.3.7",
@@ -30,6 +30,7 @@
     "@aws-sdk/util-dynamodb": "^3.345.0",
     "@types/uuid": "^9.0.1",
     "aws-amplify": "^5.2.4",
+    "node-fetch": "^3.3.1",
     "uuid": "^9.0.0"
   }
 }
