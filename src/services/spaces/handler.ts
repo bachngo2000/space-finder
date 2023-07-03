@@ -23,6 +23,14 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 
     let response: APIGatewayProxyResult;
 
+    const subSeg = getSegment().addNewSubsegment('MyLongCall')
+    await new Promise(resolve =>{ setTimeout(resolve, 3000)});
+    subSeg.close();
+
+    const subSeg2 = getSegment().addNewSubsegment('MyShortCall')
+    await new Promise(resolve =>{ setTimeout(resolve, 500)})
+    subSeg2.close();
+
     try {
         switch (event.httpMethod) {
             case 'GET':
