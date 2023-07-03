@@ -12,6 +12,7 @@ import { captureAWSv3Client, getSegment } from 'aws-xray-sdk-core';
 // const ddbclient = new DynamoDBClient({});
 
 // We will wrap our DynamoDBClient inside this captureAWSv3Client
+// It is still a DynamoDBClient like above, but now, we can trace calls to our client
 const ddbclient = captureAWSv3Client(new DynamoDBClient({}))
 
 // the handler function receives an event and a context
