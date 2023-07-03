@@ -7,6 +7,7 @@ const webHookUrl = 'https://hooks.slack.com/services/T05FX480TG8/B05F0P7088N/R0B
 // handler that receives an event of type SNS and a contact
 // With this event, we will send a HTTP request to our webhook containing data from our event
 // event contains some records (an array of records) -- we can get all kinds of information from this event
+// look at the monitor.test.ts file in the test folder to see an example of how this lambda is used
 async function handler(event: SNSEvent, context) {
     for (const record of event.Records) {
         await fetch(webHookUrl, {
