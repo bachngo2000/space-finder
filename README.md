@@ -16,8 +16,14 @@ To learn more, please visit https://github.com/bachngo2000/space-finder-frontend
  - **AWS Cognito**: used to create user pools to stores user data and provides basic authentication solution -- JWT tokens, & identity pools to generate temporary credentials to run AWS-CDK calls locally and grant fine grained access control to admin users to allow sending data/files from the application to an external source
  - **API Gateway**: used to allow local access to various AWS resources on the cloud using a serverless REST Api
 
-## Walkthrough
+## Walkthroughs
 
 Here's a walkthrough of the implemented features:
 
 <img src=walkthrough.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+Here's a demo walkthrough of using AWS CloudWatch and Amazon SNS topic to monitor our stacks and send notification messages to the Slack channel when more than 5 unauthorized HTTP requests were sent to the AWS application:
+
+<img src=CloudWatch_demo_walkthrough.gif title='Demo AWS CloudWatch Video Walkthrough' width='' alt='Demo AWS CloudWatch Video Walkthrough' />
+
+
