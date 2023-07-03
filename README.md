@@ -27,4 +27,10 @@ Here's a demo walkthrough of using AWS CloudWatch and Amazon SNS topic to monito
 
 <img src=CloudWatch_demo_walkthrough.gif title='Demo AWS CloudWatch Video Walkthrough' width='' alt='Demo AWS CloudWatch Video Walkthrough' />
 
+### AWS X-Ray:
+Here's a demo walkthrough of using AWS X-Ray to provides a complete view of requests as they travel through the application and filters visual data across payloads, functions, traces, services, APIs, and more:
+
+<img src=XRay_demo_walkthrough.gif title='Demo AWS CloudWatch Video Walkthrough' width='' alt='Demo AWS CloudWatch Video Walkthrough' />
+
+
 
