@@ -9,7 +9,7 @@ export class MonitorStack extends Stack {
         super(scope, id, props);
 
         const spacesApi4xxAlarm = new Alarm(this, 'spacesApi4xxAlarm', {
-            //specify a new metric
+            //specify a new metric for the alarm
             metric: new Metric({
                 metricName: '4XXError',
                 namespace: 'AWS/ApiGateway',
