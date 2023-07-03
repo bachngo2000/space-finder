@@ -9,7 +9,7 @@ The frontend of the application was built using React, TypeScript, HTML, CSS, an
 To learn more, please visit https://github.com/bachngo2000/space-finder-frontend.
 
  ### Backend:
- The application's AWS-backend was built with AWS Cloud Development Kit v2 using a variety of integrated AWS services and frameworks: CloudFormation, Cognito, Lambda, DynamoDB, API Gateway,  S3, SDK,and Amplify.
+ The application's AWS-backend was built with AWS Cloud Development Kit v2 using a variety of integrated AWS services and frameworks: CloudFormation, Cognito, Lambda, DynamoDB, API Gateway,  S3, SDK, Amplify, CloudWatch, Amazon SNS, and X-Ray.
  
  - **AWS S3**: used to upload photo files and to deploy the application to the cloud
  - **AWS DynamoDB**: used to create tables with AWS-CDK, write and run queries locally with AWS-CDK v3
