@@ -4,7 +4,7 @@
 Authorization: {{token}}
 ###
 
-POST https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces
+POST {{url}}/spaces
 content-Type: : application/json
 
  {
@@ -13,10 +13,11 @@ content-Type: : application/json
  }
 ###
 
-GET https://67uft0acpc.execute-api.us-east-2.amazonaws.com/prod/spaces?id=13b4816f-1e5e-4f53-a2fa-051a1f218ea0
+GET {{url}}
 ###
 
 GET {{url}}/spaces
+// Test: token already expired, so we'll get a 401 error - Unauthorized when attempting to send the GET Request
 Authorization: {{token}}
 ###
 
