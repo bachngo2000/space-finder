@@ -54,6 +54,7 @@ export class MonitorStack extends Stack {
         // first, create an SNS action that receives our topic
         const topicAction = new SnsAction(alarmTopic);
         // use this action to trigger our alarm
+        // Once triggered, the AWS CloudWatch Alarm will send a notification to our Slack channel
         spacesApi4xxAlarm.addAlarmAction(topicAction);
         spacesApi4xxAlarm.addOkAction(topicAction);
     }
