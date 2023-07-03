@@ -6,8 +6,13 @@ import { updateSpace } from "./UpdateSpace";
 import { deleteSpace } from "./DeleteSpace";
 import { JsonError, MissingFieldError } from "../shared/Validators";
 import { addCorsHeader } from "../shared/Utils";
+import { captureAWSv3Client, getSegment } from 'aws-xray-sdk-core'; 
 
-const ddbclient = new DynamoDBClient({});
+// In order to obtain information about the initialization of our client or how many queries are taking place
+// const ddbclient = new DynamoDBClient({});
+
+// We will wrap our DynamoDBClient inside this captureAWSv3Client
+const ddbclient = captureAWSv3Client(new DynamoDBClient({}))
 
 // the handler function receives an event and a context
 // if this lambda is accessed by APIGateWay, then APIGatewayProxyEvent is the type of our event
