@@ -17,11 +17,12 @@ To learn more, please visit https://github.com/bachngo2000/space-finder-frontend
  - **API Gateway**: used to allow local access to various AWS resources on the cloud using a serverless REST Api
 
 ## Walkthroughs
-
+### General walkthrough: 
 Here's a walkthrough of the implemented features:
 
 <img src=walkthrough.gif title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+### AWS CloudWatch & Amazon SNS: 
 Here's a demo walkthrough of using AWS CloudWatch and Amazon SNS topic to monitor our stacks and send notification messages to the Slack channel when more than 5 unauthorized HTTP requests were sent to the AWS application:
 
 <img src=CloudWatch_demo_walkthrough.gif title='Demo AWS CloudWatch Video Walkthrough' width='' alt='Demo AWS CloudWatch Video Walkthrough' />
