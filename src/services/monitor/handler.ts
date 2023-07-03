@@ -1,7 +1,7 @@
 import { SNSEvent } from "aws-lambda";
 
 // url to send data to our Slack channel
-const webHookUrl = 'https://hooks.slack.com/services/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';
+const webHookUrl = 'https://hooks.slack.com/services/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'
 
 // build a lambda that will send data to the webhook of our Slack channel and 
 // handler that receives an event of type SNS and a contact
