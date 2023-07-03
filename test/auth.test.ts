@@ -9,11 +9,11 @@ async function testAuth() {
         'Quangdien@2013'
     )
 
-    //console.log(loginResult.getSignInUserSession().getIdToken().getJwtToken());
-    const credentials = await service.generateTemporaryCredentials(loginResult);
+    console.log(loginResult.getSignInUserSession().getIdToken().getJwtToken());
+    // const credentials = await service.generateTemporaryCredentials(loginResult);
     // console.log(credentials);
-    const buckets = await listBuckets(credentials);
-    console.log(buckets);
+    // const buckets = await listBuckets(credentials);
+    // console.log(buckets);
 
 }
 
