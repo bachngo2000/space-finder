@@ -15,7 +15,7 @@ To learn more, please visit https://github.com/bachngo2000/space-finder-frontend
  - **AWS DynamoDB**: used to create tables with AWS-CDK, write and run queries locally with AWS-CDK v3
  - **AWS Cognito**: used to create user pools to stores user data and provides basic authentication solution -- JWT tokens, & identity pools to generate temporary credentials to run AWS-CDK calls locally and grant fine grained access control to admin users to allow sending data/files from the application to an external source
  - **API Gateway**: used to allow local access to various AWS resources on the cloud using a serverless REST Api
- - **AWS CloudWatch** & **Amazon SNS**:  used to monitor our stacks and send notification messages to the aws-alarms Slack channel when more than 5 unauthorized HTTP requests were sent to the AWS application.
+ - **AWS CloudWatch** & **Amazon SNS**:  used to monitor our stacks and send notification messages to the aws-alarms Slack channel when more than 5 unauthorized HTTP requests were made to the AWS application.
  - **AWS X-Ray**: used to to provides a complete view of requests as they travel through the application and filters visual data across payloads, functions, traces, services, APIs, and more.
 
 ## Walkthroughs
